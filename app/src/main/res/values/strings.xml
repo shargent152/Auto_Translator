@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Auto_Translator</string>
+    <string name="source_language">Source language</string>
+    <string name="english">English</string>
+    <string name="spanish">spanish</string>
+    <string name="german">german</string>
+    <string name="translation">Translation</string>
+</resources>

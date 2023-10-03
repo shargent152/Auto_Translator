@@ -40,6 +40,11 @@
             android:layout_height="wrap_content"
             android:text="@string/german"
             android:onClick="german_sourceLanguage"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/auto_detect_language"
+            android:onClick="auto_Detect"/>
     </RadioGroup>
 
     <RadioGroup
@@ -57,7 +62,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/english"
-            android:onClick="english_translate"/>
+            android:onClick="english_translate"
+            android:id = "@+id/english"
+            />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,8 +80,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="@string/translationstring"
+        android:hint="@string/translationstring"
         android:layout_weight="0.5"
+        android:id = "@+id/translatedword"
         />
     <fragment
         android:layout_width="match_parent"

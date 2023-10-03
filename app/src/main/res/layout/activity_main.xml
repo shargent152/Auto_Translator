@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <RadioGroup
-        android:layout_width="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:layout_margin="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true">
+        android:orientation="horizontal">
+    <RadioGroup
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_weight="0.5"
+        android:id="@+id/selector"
+        tools:ignore="MissingConstraints">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/source_language"
-            />
+            android:text="@string/source_language" />
+
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/english"/>
+            android:text="@string/english"
+            android:onClick="english_sourceLanguage"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/spanish"/>
+            android:text="@string/spanish"
+            android:onClick="spanish_sourceLanguage"/>
+
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/german"/>
+            android:text="@string/german"
+            android:onClick="german_sourceLanguage"/>
     </RadioGroup>
+
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true">
+        android:id="@+id/translate"
+        android:layout_weight=".5"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,18 +56,33 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/english"/>
+            android:text="@string/english"
+            android:onClick="english_translate"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/spanish"/>
+            android:text="@string/spanish"
+            android:onClick="spanish_translate"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/german"/>
+            android:text="@string/german"
+            android:onClick="german_translate"/>
     </RadioGroup>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/translationstring"
+        android:layout_weight="0.5"
+        />
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        tools:layout="@layout/fragment_edittext"
+        android:name="com.example.auto_translator.edittext"
+        android:id="@+id/frag"
+        />
 
-
-
-
-</RelativeLayout>
+</LinearLayout>

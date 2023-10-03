@@ -15,79 +15,66 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import org.w3c.dom.Text
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
 /**
- * A simple [Fragment] subclass.
- * Use the [edittext.newInstance] factory method to
- * create an instance of this fragment.
+ * This class is what makes it so the fragment can send the info to the activity
  */
-
 class ItemViewModel : ViewModel(){
+    // This receives the data
     val selected = MutableLiveData<String>()
+    // this is what gets the data
     val selectedItem: LiveData<String> get() = selected
+    // this is what sets the data
     fun selectItem(item: String){
         selected.value = item
     }
 }
 class edittext : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-
     }
 
+    /**
+     * this is what is used to setup the editText view and the entire fragment
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // this is the viewModel same as the one in mainActivity
         var viewModel : ItemViewModel = ViewModelProvider(requireActivity()).get(ItemViewModel::class.java)
+        // This is the fragments view
         var view = inflater.inflate(R.layout.fragment_edittext,container,false)
-
+        // This is the editText box
         var editText = view.findViewById<EditText>(R.id.textEditor)
+        // This is how I know when the user changes the text
         editText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                // Whenever its changed it gets updated
                 viewModel.selectItem(editText.text.toString())
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                // Or after the user gets done changing it
                 viewModel.selectItem(editText.text.toString())
             }
 
         })
-        // Inflate the layout for this fragment
         return view
     }
-
-
+    /**
+     * This is so the fragment can actually get made
+     */
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment edittext.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
             edittext().apply {
-                arguments = Bundle().apply {
 
-                }
             }
     }
 }

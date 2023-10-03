@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Had to change to linear layout from frame layout because of a weird bug with the text box
+where the hint just wouldn't disappear -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".edittext">
+    <!-- the editText box -->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"

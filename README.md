@@ -8,8 +8,6 @@ The following **required** functionality is completed
 * finally the user types their word or phrase in the editText and it translates the word into the textView
 ## Video Walkthrough
 ![Translator](https://github.com/shargent152/Auto_Translator/assets/125781283/88a4bd76-91ea-430c-a9b5-60e830233998)
-# Notes
-* I struggle with the viewModel and the fragment for a good while but i was able to wrap my head around them
 ## License
 
     Copyright 2023 Trevor Peevers
